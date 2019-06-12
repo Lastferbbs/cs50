@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+   <table class="table table-striped">
+        <thead>
+            <tr><p>
+
+                <th><div align="left">Symbol</div></th>
+                <th><div align="left">Shares</div></th>
+                <th><div align="left">Price</div></th>
+                <th><div align="left">TOTAL</div></th>
+            </p></tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td><b><div align="left">${{"%.2f"|format(suma)}}</div></b></td>
+            </tr>
+        </tfoot>
+
+        <tbody>
+        {% for share in shares %}
+
+                <tr><p>
+                    <td><div align="left">{{share.symbol}}</div></td>
+                    <td><div align="left">{{share.total}}</div></td>
+                    <td><div align="left">${{"%.2f"|format(share.price)}}</div></td>
+                    <td><div align="left">${{"%.2f"|format(share.totalcash)}}</div></td>
+                </p></tr>
+        {% endfor %}
+
+
+
+                </tr>
+            <tr>
+                <td colspan="3"><b><div align="left">{{ "%-10s"|format("CASH")}}</div></b></td>
+                <td><div align="left">${{"%.2f"|format(cash)}}</div></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+
+{% endblock %}
